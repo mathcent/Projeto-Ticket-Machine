@@ -37,10 +37,14 @@ public class TicketMachine {
     public int getSaldo() {
         return saldo;
     }
-
-    public Iterator<Integer> getTroco() {
-        return null;
+    
+    /* Erro 2 [código] - Está especificado na documentacao que o saldo deve ser zerado ao solicitar o troco */
+    /* Erro 3 [código] - A função getTroco deveria retornar um TrocoIterator */
+    public TrocoIterator getTroco() {
+        return new TrocoIterator(new Troco(this.getSaldo()));
     }
+
+    /* Erro 4 [código] - A impressão do bilhete deveria debitar o valor do bilhete do saldo segundo a documentação */
 
     public String imprimir() throws SaldoInsuficienteException {
         if (saldo < valor) {
